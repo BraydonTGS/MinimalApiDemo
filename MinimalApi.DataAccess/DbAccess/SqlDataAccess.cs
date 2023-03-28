@@ -1,5 +1,6 @@
 ﻿using Dapper;
 using Microsoft.Extensions.Configuration;
+using MinimalApi.DataAccess.Models;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -20,10 +21,10 @@ namespace MinimalApi.DataAccess.DbAccess
             return await connection.QueryAsync<T>(storedProcedure, parameters, commandType: CommandType.StoredProcedure);
         }
 
-        public async Task SaveData(string storedProcedure, object? parameters = null, string connectionId = "Default")
+        public async Task<int> SaveData<T>(string storedProcedure, object? parameters = null, string connectionId = "Default")
         {
             using IDbConnection connection = new SqlConnection(_configuration.GetConnectionString(connectionId));
-            await connection.ExecuteAsync(storedProcedure, parameters, commandType: CommandType.StoredProcedure);
+            return await connection.ExecuteAsync(storedProcedure, parameters, commandType: CommandType.StoredProcedure);
         }
     }
 }
