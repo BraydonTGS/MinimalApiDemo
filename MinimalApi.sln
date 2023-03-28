@@ -5,9 +5,11 @@ VisualStudioVersion = 17.5.33414.496
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "MinimalApi.Database", "MinimalApi.Database\MinimalApi.Database.sqlproj", "{178AE085-4036-4DBC-B496-1C68BD171F2A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinimalApi.DataAccess", "MinimalApi.DataAccess\MinimalApi.DataAccess.csproj", "{51EA7AD6-E543-46F6-B9D2-AB143D28250A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MinimalApi.DataAccess", "MinimalApi.DataAccess\MinimalApi.DataAccess.csproj", "{51EA7AD6-E543-46F6-B9D2-AB143D28250A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinimalApi.Api", "MinimalApi.Api\MinimalApi.Api.csproj", "{FC25298F-68F2-4F26-A089-DB772D4C6CDA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MinimalApi.Api", "MinimalApi.Api\MinimalApi.Api.csproj", "{FC25298F-68F2-4F26-A089-DB772D4C6CDA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinimalApi.Tests", "MinimalApi.Tests\MinimalApi.Tests.csproj", "{4A2C8899-9219-4BA4-B7D9-C3FC03F5DA19}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,6 +31,10 @@ Global
 		{FC25298F-68F2-4F26-A089-DB772D4C6CDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FC25298F-68F2-4F26-A089-DB772D4C6CDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FC25298F-68F2-4F26-A089-DB772D4C6CDA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A2C8899-9219-4BA4-B7D9-C3FC03F5DA19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A2C8899-9219-4BA4-B7D9-C3FC03F5DA19}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A2C8899-9219-4BA4-B7D9-C3FC03F5DA19}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A2C8899-9219-4BA4-B7D9-C3FC03F5DA19}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
