@@ -57,14 +57,23 @@ namespace MinimalApi.Tests.DataAccess
         public async Task CreateUser_ShouldAddNewUser()
         {
             // Arrange
-            var newUser = new UserDto();
-            _sqlDataAccess.Setup(x => x.SaveData<int>(It.IsAny<string>(), It.IsAny<object>(), "Default")).ReturnsAsync(1);
+            var newUser = new UserDto()
+            {
+                Id = 1,
+                FirstName = "Braydon",
+                LastName = "Sutherland",
+                UserName = "BeeSuth",
+                Password = "Password"
+            };
+            _sqlDataAccess.Setup(x => x.SaveData<UserDto>(It.IsAny<string>(), It.IsAny<object>(), "Default")); 
 
             // Act //
-             await _userRepository.InsertUserAsync(newUser);
-
+            await _userRepository.InsertUserAsync(newUser);
+   
             // Assert //
             _sqlDataAccess.Verify(x => x.SaveData<UserDto>(It.IsAny<string>(), It.IsAny<object>(), "Default"), Times.Once);
+
+            
         }
     }
 }

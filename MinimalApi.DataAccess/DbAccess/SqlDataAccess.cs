@@ -21,10 +21,10 @@ namespace MinimalApi.DataAccess.DbAccess
             return await connection.QueryAsync<T>(storedProcedure, parameters, commandType: CommandType.StoredProcedure);
         }
 
-        public async Task<int> SaveData<T>(string storedProcedure, object? parameters = null, string connectionId = "Default")
+        public async Task SaveData<T>(string storedProcedure, object? parameters = null, string connectionId = "Default")
         {
             using IDbConnection connection = new SqlConnection(_configuration.GetConnectionString(connectionId));
-            return await connection.ExecuteAsync(storedProcedure, parameters, commandType: CommandType.StoredProcedure);
+            await connection.ExecuteAsync(storedProcedure, parameters, commandType: CommandType.StoredProcedure);
         }
     }
 }

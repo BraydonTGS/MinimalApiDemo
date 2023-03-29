@@ -22,9 +22,8 @@ namespace MinimalApi.DataAccess.Data
             }
             return user;
         }
-        public async Task<int> InsertUserAsync(UserDto user) => await _repo.SaveData<UserDto>(storedProcedure: "dbo.spUser_Insert", new { user.FirstName, user.LastName, user.UserName, user.Password });
-
-        public async Task<int> UpdateUserAsync(UserDto user) => await _repo.SaveData<UserDto>(storedProcedure: "dbo.spUser_Update", user);
-        public async Task<int> DeleteUserAsync(int id) => await _repo.SaveData<UserDto>(storedProcedure: "dbo.spUser_Delete", new { id });
+        public async Task InsertUserAsync(UserDto user) => await _repo.SaveData<UserDto>(storedProcedure: "dbo.spUser_Insert", new { user.FirstName, user.LastName, user.UserName, user.Password });
+        public async Task UpdateUserAsync(UserDto user) => await _repo.SaveData<UserDto>(storedProcedure: "dbo.spUser_Update", user);
+        public async Task DeleteUserAsync(int id) => await _repo.SaveData<UserDto>(storedProcedure: "dbo.spUser_Delete", new { id });
     }
 }
