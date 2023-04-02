@@ -2,7 +2,7 @@
 	@Id int
 AS
 begin 
-	SELECT Id, FirstName, LastName
+	SELECT Id, FirstName, LastName, UserName, Password
 	FROM dbo.[User]
 	where Id = @Id;
 end
