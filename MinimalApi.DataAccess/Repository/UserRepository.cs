@@ -14,7 +14,7 @@ namespace MinimalApi.DataAccess.Data
         public async Task<IEnumerable<UserDto>> GetAllAsync() => await _repo.LoadData<UserDto>(storedProcedure: "dbo.spUser_GetAll");
         public async Task<UserDto?> GetUserByIdAsync(int id)
         {
-            var result = await _repo.LoadData<UserDto>(storedProcedure: "dbo.spUser.Get", new { id });
+            var result = await _repo.LoadData<UserDto>(storedProcedure: "dbo.spUser_Get", new { id });
             var user = result.FirstOrDefault();
             if (user == null)
             {
@@ -22,8 +22,32 @@ namespace MinimalApi.DataAccess.Data
             }
             return user;
         }
-        public async Task InsertUserAsync(UserDto user) => await _repo.SaveData<UserDto>(storedProcedure: "dbo.spUser_Insert", new { user.FirstName, user.LastName, user.UserName, user.Password });
-        public async Task UpdateUserAsync(UserDto user) => await _repo.SaveData<UserDto>(storedProcedure: "dbo.spUser_Update", user);
-        public async Task DeleteUserAsync(int id) => await _repo.SaveData<UserDto>(storedProcedure: "dbo.spUser_Delete", new { id });
+        public async Task<bool> InsertUserAsync(UserDto user)
+        {
+            try
+            {
+                var result = await _repo.SaveData<UserDto>(storedProcedure: "dbo.spUser_Insert", new { user.FirstName, user.LastName, user.UserName, user.Password });
+                return result;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message, ex);
+            }
+        }
+        public async Task<bool> UpdateUserAsync(UserDto user)
+        {
+            try
+            {
+                var result = await _repo.SaveData<UserDto>(storedProcedure: "dbo.spUser_Update", user);
+                return result;
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message, ex);
+            }
+
+        }
+        public async Task<bool> DeleteUserAsync(int id) => await _repo.SaveData<UserDto>(storedProcedure: "dbo.spUser_Delete", new { id });
     }
 }

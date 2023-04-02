@@ -476,3 +476,4 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 /MinimalApi.Api/appsettings.json
+/MinimalApi.Tests/Base/Hidden.cs

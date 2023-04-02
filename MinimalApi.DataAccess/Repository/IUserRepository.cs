@@ -4,10 +4,10 @@ namespace MinimalApi.DataAccess.Data
 {
     public interface IUserRepository
     {
-        Task DeleteUserAsync(int id);
+        Task<bool> DeleteUserAsync(int id);
         Task<IEnumerable<UserDto>> GetAllAsync();
         Task<UserDto?> GetUserByIdAsync(int id);
-        Task InsertUserAsync(UserDto user);
-        Task UpdateUserAsync(UserDto user);
+        Task<bool> InsertUserAsync(UserDto user);
+        Task<bool> UpdateUserAsync(UserDto user);
     }
 }

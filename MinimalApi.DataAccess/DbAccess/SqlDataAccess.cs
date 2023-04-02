@@ -1,6 +1,4 @@
 ﻿using Dapper;
-using Microsoft.Extensions.Configuration;
-using MinimalApi.DataAccess.Models;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -8,23 +6,48 @@ namespace MinimalApi.DataAccess.DbAccess
 {
     public class SqlDataAccess : ISqlDataAccess
     {
-        private readonly IConfiguration _configuration;
+        private readonly string _connectionString;
 
-        public SqlDataAccess(IConfiguration configuration)
+        public SqlDataAccess(string connectionString)
         {
-            _configuration = configuration;
+            _connectionString = connectionString;
         }
 
-        public async Task<IEnumerable<T>> LoadData<T>(string storedProcedure, object? parameters = null, string connectionId = "Default")
+        public async Task<IEnumerable<T>> LoadData<T>(string storedProcedure, object? parameters = null)
         {
-            using IDbConnection connection = new SqlConnection(_configuration.GetConnectionString(connectionId));
-            return await connection.QueryAsync<T>(storedProcedure, parameters, commandType: CommandType.StoredProcedure);
+            try
+            {
+                using IDbConnection connection = new SqlConnection(_connectionString);
+                var result = await connection.QueryAsync<T>(storedProcedure, parameters, commandType: CommandType.StoredProcedure);
+                if (result == null)
+                {
+                    return null;
+                }
+                return result;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.ToString());
+            }
+
         }
 
-        public async Task SaveData<T>(string storedProcedure, object? parameters = null, string connectionId = "Default")
+        public async Task<bool> SaveData<T>(string storedProcedure, object? parameters = null)
         {
-            using IDbConnection connection = new SqlConnection(_configuration.GetConnectionString(connectionId));
-            await connection.ExecuteAsync(storedProcedure, parameters, commandType: CommandType.StoredProcedure);
+            try
+            {
+                using IDbConnection connection = new SqlConnection(_connectionString);
+                var rowsAffected = await connection.ExecuteAsync(storedProcedure, parameters, commandType: CommandType.StoredProcedure);
+                if (rowsAffected == 0)
+                {
+                    return false;
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.ToString());
+            }
         }
     }
 }
