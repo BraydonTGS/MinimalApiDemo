@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MinimalApi.Tests", "Minimal
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinimalApi.Wpf", "MinimalApi.Wpf\MinimalApi.Wpf.csproj", "{252DDC95-9DC1-4CB7-8CAB-5B7EF2AB65B0}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{74E2E66C-0673-4B2B-B0C9-0099CBA51829}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -44,6 +46,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4A2C8899-9219-4BA4-B7D9-C3FC03F5DA19} = {74E2E66C-0673-4B2B-B0C9-0099CBA51829}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {677F8804-4DF7-477E-9E6B-001030ED95C7}

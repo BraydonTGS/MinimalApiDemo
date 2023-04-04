@@ -1,12 +1,106 @@
-﻿<Window x:Class="MinimalApi.Wpf.MainWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:MinimalApi.Wpf"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+﻿<Window
+    x:Class="MinimalApi.Wpf.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:MinimalApi.Wpf"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Width="1000"
+    Height="700"
+    AllowsTransparency="True"
+    Background="Transparent"
+    MouseDown="Window_MouseDown"
+    ResizeMode="NoResize"
+    WindowStyle="None"
+    mc:Ignorable="d">
 
-    </Grid>
+    <!--  Main Border  -->
+    <Border Background="#272545" CornerRadius="20">
+        <!--  Setting up the Grid  -->
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="75" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <!--  Header  -->
+            <StackPanel>
+                <TextBlock
+                    Margin="10,20,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    FontSize="25"
+                    FontStyle="Italic"
+                    FontWeight="Bold"
+                    Foreground="White"
+                    Text="A =&gt; B =&gt; C" />
+            </StackPanel>
+
+            <!--  Custom Menu  -->
+            <StackPanel Grid.Row="1">
+                <RadioButton
+                    Height="50"
+                    Margin="0,0,0,10"
+                    Content="Home"
+                    FontSize="20"
+                    FontWeight="Bold"
+                    Foreground="White"
+                    Style="{StaticResource MenuButtonTheme}" />
+                <RadioButton
+                    Height="50"
+                    Margin="0,10,0,10"
+                    Content="Login"
+                    FontSize="20"
+                    FontWeight="Bold"
+                    Foreground="White"
+                    Style="{StaticResource MenuButtonTheme}" />
+                <RadioButton
+                    Height="50"
+                    Margin="0,10,0,10"
+                    Content="Resources"
+                    FontSize="20"
+                    FontWeight="Bold"
+                    Foreground="White"
+                    Style="{StaticResource MenuButtonTheme}" />
+                <RadioButton
+                    Height="50"
+                    Margin="0,10,0,10"
+                    Content="Group Projects"
+                    FontSize="20"
+                    FontWeight="Bold"
+                    Foreground="White"
+                    Style="{StaticResource MenuButtonTheme}" />
+                <RadioButton
+                    Height="50"
+                    Margin="0,10,0,10"
+                    Content="Video Portal"
+                    FontSize="20"
+                    FontWeight="Bold"
+                    Foreground="White"
+                    Style="{StaticResource MenuButtonTheme}" />
+                <RadioButton
+                    Height="50"
+                    Margin="0,10,0,10"
+                    Content="About"
+                    FontSize="20"
+                    FontWeight="Bold"
+                    Foreground="White"
+                    Style="{StaticResource MenuButtonTheme}" />
+                <RadioButton
+                    Height="50"
+                    Margin="0,10,0,10"
+                    Content="Help"
+                    FontSize="20"
+                    FontWeight="Bold"
+                    Foreground="White"
+                    Style="{StaticResource MenuButtonTheme}" />
+
+            </StackPanel>
+        </Grid>
+
+    </Border>
 </Window>
