@@ -20,12 +20,26 @@
         <viewModel:MainViewModel />
     </Window.DataContext>
 
-    <!--  Main Border  -->
+    <!--  Main Window  -->
     <Border
-        Background="#272545"
-        BorderBrush="#272560"
-        BorderThickness="5"
+        BorderThickness="3"
         CornerRadius="20">
+        <!-- Main Window Border Brush Gradient -->
+        <Border.BorderBrush>
+            <LinearGradientBrush StartPoint="0, 0" EndPoint="1, 1">
+                <GradientStop Color="#434BE9" Offset="0"/>
+                <GradientStop Color="#B171A7" Offset="0.75"/>
+                <GradientStop Color="#F08781" Offset="1"/>
+            </LinearGradientBrush>
+        </Border.BorderBrush>
+        
+        <!-- Main Window Background Gradient -->
+        <Border.Background>
+            <LinearGradientBrush StartPoint="0, 1" EndPoint="1, 0">
+                <GradientStop Color="#060531" Offset="0"/>
+                <GradientStop Color="#1b1448" Offset="0.75"/>
+            </LinearGradientBrush>
+        </Border.Background>
         <!--  Setting up the Grid  -->
         <Grid>
             <Grid.ColumnDefinitions>
@@ -123,7 +137,7 @@
                 Grid.Column="1"
                 Width="250"
                 Height="40"
-                Margin="10"
+                Margin="10, 8, 0, 0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Center"
                 Style="{StaticResource ModernTextBox}" />
