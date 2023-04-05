@@ -9,13 +9,13 @@
 
     <Application.Resources>
         <ResourceDictionary>
-            <!-- Add Themes Here -->
+            <!--  Add Themes Here  -->
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Themes/MenuButtonTheme.xaml" />
                 <ResourceDictionary Source="Themes/SearchBarTheme.xaml" />
             </ResourceDictionary.MergedDictionaries>
 
-            <!--  Data Template for Data Binding -->
+            <!--  Data Template for Data Binding  -->
             <DataTemplate DataType="{x:Type viewModel:HomeViewModel}">
                 <view:HomeView />
             </DataTemplate>
@@ -43,7 +43,13 @@
             <DataTemplate DataType="{x:Type viewModel:VideoPortalViewModel}">
                 <view:VideoPortalView />
             </DataTemplate>
+
+            <!--  Application Styles  -->
+            <Style TargetType="{x:Type TextBlock}">
+                <Setter Property="FontFamily" Value="Comic Sans MS" />
+            </Style>
         </ResourceDictionary>
+        
     </Application.Resources>
 
 </Application>

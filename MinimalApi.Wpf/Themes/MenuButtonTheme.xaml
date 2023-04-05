@@ -32,6 +32,8 @@
             <!--  Setter 3  -->
             <Setter Property="BorderThickness" Value="0" />
 
+            <Setter Property="Cursor" Value="Hand"/>
+
         </Style.Setters>
 
         <!--  Triggers  -->
