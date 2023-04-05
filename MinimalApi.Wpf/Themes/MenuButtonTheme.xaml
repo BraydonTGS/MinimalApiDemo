@@ -33,7 +33,7 @@
             <Setter Property="BorderThickness" Value="0" />
 
             <!--  Setter 4  -->
-            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Cursor" Value="Hand" />
 
         </Style.Setters>
 

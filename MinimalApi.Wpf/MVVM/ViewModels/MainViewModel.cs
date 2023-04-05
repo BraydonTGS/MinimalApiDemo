@@ -1,5 +1,6 @@
 ﻿using MinimalApi.Wpf.Core.Base;
 using MinimalApi.Wpf.Core.Commands;
+using System;
 
 namespace MinimalApi.Wpf.MVVM.ViewModels
 {
@@ -50,41 +51,55 @@ namespace MinimalApi.Wpf.MVVM.ViewModels
             // Current View //
             CurrentView = HomeViewModel;
 
-            // Commands //
-            HomeViewCommand = new RelayCommand(obj =>
-            {
-                CurrentView = HomeViewModel;
-            });
+            // Set up Commands //
+            SetUpCommands(); 
+        }
 
-            AboutViewCommand = new RelayCommand(obj =>
-            {
-                CurrentView = AboutViewModel;
-            });
+        private void SetUpCommands()
+        {
+            HomeViewCommand = new RelayCommand(obj => ShowHomeView());
+            AboutViewCommand = new RelayCommand(obj => ShowAboutView());
+            GroupProjectViewCommand = new RelayCommand(obj => ShowGroupProjectView());
+            HelpViewCommand = new RelayCommand(obj => ShowHelpView());
+            LoginViewCommand = new RelayCommand(obj => ShowLoginView());
+            ResourceViewCommand = new RelayCommand(obj => ShowResourceView());
+            VideoPortalViewCommand = new RelayCommand(obj => ShowVideoPortalView());
+        }
 
-            GroupProjectViewCommand = new RelayCommand(obj =>
-            {
-                CurrentView = GroupProjectsViewModel;
-            });
+        // Commands //
+        private void ShowHomeView()
+        { 
+            CurrentView = HomeViewModel;
+        }
 
-            HelpViewCommand = new RelayCommand(obj =>
-            {
-                CurrentView = HelpViewModel;
-            });
+        private void ShowAboutView()
+        {
+            CurrentView = AboutViewModel;
+        }
 
-            LoginViewCommand = new RelayCommand(obj =>
-            {
-                CurrentView = LoginViewModel;
-            });
+        private void ShowGroupProjectView()
+        {
+            CurrentView = GroupProjectsViewModel;
+        }
 
-            ResourceViewCommand = new RelayCommand(obj =>
-            {
-                CurrentView = ResourceViewModel;
-            });
+        private void ShowHelpView()
+        {
+            CurrentView = HelpViewModel;
+        }
 
-            VideoPortalViewCommand = new RelayCommand(obj =>
-            {
-                CurrentView = VideoPortalViewModel;
-            });
+        private void ShowLoginView()
+        {
+            CurrentView = LoginViewModel;
+        }
+
+        private void ShowResourceView()
+        {
+            CurrentView = ResourceViewModel;
+        }
+
+        private void ShowVideoPortalView()
+        {
+            CurrentView = VideoPortalViewModel;
         }
     }
 }

@@ -46,7 +46,7 @@
 
             <!--  Application Styles  -->
             <Style TargetType="{x:Type TextBlock}">
-                <Setter Property="FontFamily" Value="Comic Sans MS" />
+                <Setter Property="FontFamily" Value="Georgia" />
             </Style>
         </ResourceDictionary>
         
