@@ -12,8 +12,8 @@
     Background="Transparent"
     MouseDown="Window_MouseDown"
     ResizeMode="NoResize"
-    WindowStyle="None"
     WindowStartupLocation="CenterScreen"
+    WindowStyle="None"
     mc:Ignorable="d">
 
     <Window.DataContext>
@@ -21,23 +21,21 @@
     </Window.DataContext>
 
     <!--  Main Window  -->
-    <Border
-        BorderThickness="3"
-        CornerRadius="20">
-        <!-- Main Window Border Brush Gradient -->
+    <Border BorderThickness="3" CornerRadius="20">
+        <!--  Main Window Border Brush Gradient  -->
         <Border.BorderBrush>
             <LinearGradientBrush StartPoint="0, 0" EndPoint="1, 1">
-                <GradientStop Color="#462ad8" Offset="0"/>
-                <GradientStop Color="#DA34AE" Offset="0.75"/>
-                <GradientStop Color="#8A16C1" Offset="1"/>
+                <GradientStop Offset="0" Color="#462ad8" />
+                <GradientStop Offset="0.75" Color="#DA34AE" />
+                <GradientStop Offset="1" Color="#8A16C1" />
             </LinearGradientBrush>
         </Border.BorderBrush>
-        
-        <!-- Main Window Background Gradient -->
+
+        <!--  Main Window Background Gradient  -->
         <Border.Background>
             <LinearGradientBrush StartPoint="0, 1" EndPoint="1, 0">
-                <GradientStop Color="#060531" Offset="0"/>
-                <GradientStop Color="#1b1448" Offset="0.75"/>
+                <GradientStop Offset="0" Color="#060531" />
+                <GradientStop Offset="0.75" Color="#1b1448" />
             </LinearGradientBrush>
         </Border.Background>
         <!--  Setting up the Grid  -->
@@ -132,16 +130,61 @@
                     Style="{StaticResource MenuButtonTheme}" />
             </StackPanel>
 
-            <!--  Search Bar  -->
-            <TextBox
-                Grid.Column="1"
-                Width="250"
-                Height="40"
-                Margin="10, 8, 0, 0"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Center"
-                Style="{StaticResource ModernTextBox}" />
+            <StackPanel Grid.Column="1" Orientation="Horizontal">
 
+                <!--  Search Bar  -->
+                <TextBox
+                    Grid.Column="1"
+                    Width="250"
+                    Height="40"
+                    Margin="10,8,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    Style="{StaticResource ModernTextBox}" />
+
+                <!--  Close and Minamize  -->
+                <Border
+                    x:Name="btnMinimize"
+                    Width="40"
+                    Height="40"
+                    Margin="390,0,0,0"
+                    Background="#28AEED"
+                    CornerRadius="20"
+                    Cursor="Hand"
+                    MouseLeftButtonDown="btnMinimize_MouseLeftButtonDown">
+                    <TextBlock
+                    Background="Transparent"
+                        Text="-" 
+                        FontWeight="Bold"
+                        Foreground="White"
+                        FontSize="30"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center"/>
+                        
+                </Border>
+
+                <Border
+                    x:Name="btnClose"
+                    Width="40"
+                    Height="40"
+                    Margin="10,0,0,0"
+                    Background="DarkRed"
+                    CornerRadius="20"
+                    Cursor="Hand"
+                    MouseLeftButtonDown="btnClose_MouseLeftButtonDown">
+                    <TextBlock
+                        Background="Transparent"
+                        Text="x" 
+                        FontWeight="Bold"
+                        Foreground="White"
+                        FontSize="20"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center"/>
+
+                </Border>
+
+
+            </StackPanel>
             <!--  Content Control  -->
             <ContentControl
                 Grid.Row="1"
@@ -149,6 +192,5 @@
                 Margin="10"
                 Content="{Binding CurrentView}" />
         </Grid>
-
     </Border>
 </Window>
