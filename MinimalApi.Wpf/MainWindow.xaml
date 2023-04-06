@@ -1,0 +1,204 @@
+﻿<Window
+    x:Class="MinimalApi.Wpf.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:i1="clr-namespace:Microsoft.VisualBasic;assembly=Microsoft.VisualBasic.Core"
+    xmlns:local="clr-namespace:MinimalApi.Wpf"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModel="clr-namespace:MinimalApi.Wpf.MVVM.ViewModels"
+    Width="1000"
+    Height="700"
+    AllowsTransparency="True"
+    Background="Transparent"
+    MouseDown="Window_MouseDown"
+    ResizeMode="NoResize"
+    WindowStartupLocation="CenterScreen"
+    WindowStyle="None"
+    mc:Ignorable="d">
+
+    <Window.DataContext>
+        <viewModel:MainViewModel />
+    </Window.DataContext>
+    <Window.Resources />
+
+
+    <!--  Main Window  -->
+    <Border BorderThickness="3" CornerRadius="20">
+        <!--  Main Window Border Brush Gradient  -->
+        <Border.BorderBrush>
+            <LinearGradientBrush StartPoint="0, 0" EndPoint="1, 1">
+                <GradientStop Offset="0" Color="#462ad8" />
+                <GradientStop Offset="0.75" Color="#DA34AE" />
+                <GradientStop Offset="1" Color="#8A16C1" />
+            </LinearGradientBrush>
+        </Border.BorderBrush>
+
+        <!--  Main Window Background Gradient  -->
+        <Border.Background>
+            <LinearGradientBrush StartPoint="0, 1" EndPoint="1, 0">
+                <GradientStop Offset="0" Color="#060531" />
+                <GradientStop Offset="0.75" Color="#1b1448" />
+            </LinearGradientBrush>
+        </Border.Background>
+        <!--  Setting up the Grid  -->
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="75" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <!--  Header  -->
+            <StackPanel>
+                <TextBlock
+                    Margin="10,20,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    FontSize="25"
+                    FontStyle="Italic"
+                    FontWeight="Bold"
+                    Foreground="White"
+                    Text="A =&gt; B =&gt; C" />
+            </StackPanel>
+
+            <!--  Custom Menu  -->
+            <StackPanel Grid.Row="1">
+                <RadioButton
+                    Height="50"
+                    Margin="0,0,0,10"
+                    Command="{Binding HomeViewCommand}"
+                    Content="Home"
+                    FontSize="20"
+                    FontWeight="Bold"
+                    Foreground="White"
+                    IsChecked="True"
+                    Style="{StaticResource MenuButtonTheme}" />
+                <RadioButton
+                    Height="50"
+                    Margin="0,10,0,10"
+                    Command="{Binding LoginViewCommand}"
+                    Content="Login"
+                    FontSize="20"
+                    FontWeight="Bold"
+                    Foreground="White"
+                    Style="{StaticResource MenuButtonTheme}" />
+                <RadioButton
+                    Height="50"
+                    Margin="0,10,0,10"
+                    Command="{Binding ResourceViewCommand}"
+                    Content="Resources"
+                    FontSize="20"
+                    FontWeight="Bold"
+                    Foreground="White"
+                    Style="{StaticResource MenuButtonTheme}" />
+                <RadioButton
+                    Height="50"
+                    Margin="0,10,0,10"
+                    Command="{Binding GroupProjectViewCommand}"
+                    Content="Group Projects"
+                    FontSize="20"
+                    FontWeight="Bold"
+                    Foreground="White"
+                    Style="{StaticResource MenuButtonTheme}" />
+                <RadioButton
+                    Height="50"
+                    Margin="0,10,0,10"
+                    Command="{Binding VideoPortalViewCommand}"
+                    Content="Video Portal"
+                    FontSize="20"
+                    FontWeight="Bold"
+                    Foreground="White"
+                    Style="{StaticResource MenuButtonTheme}" />
+                <RadioButton
+                    Height="50"
+                    Margin="0,10,0,10"
+                    Command="{Binding AboutViewCommand}"
+                    Content="About"
+                    FontSize="20"
+                    FontWeight="Bold"
+                    Foreground="White"
+                    Style="{StaticResource MenuButtonTheme}" />
+                <RadioButton
+                    Height="50"
+                    Margin="0,10,0,10"
+                    Command="{Binding HelpViewCommand}"
+                    Content="Help"
+                    FontSize="20"
+                    FontWeight="Bold"
+                    Foreground="White"
+                    Style="{StaticResource MenuButtonTheme}" />
+            </StackPanel>
+
+            <!--  Search Bar / Miniminze / Close  -->
+            <StackPanel Grid.Column="1" Orientation="Horizontal">
+
+                <!--  Search Bar  -->
+                <TextBox
+                    Grid.Column="1"
+                    Width="250"
+                    Height="40"
+                    Margin="10,8,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    Style="{StaticResource ModernTextBox}" />
+
+                <!--  Minimize Button  -->
+                <Border
+                    x:Name="btnMinimize"
+                    Width="40"
+                    Height="40"
+                    Margin="400,0,0,0"
+                    Background="#28AEED"
+                    CornerRadius="20"
+                    Cursor="Hand">
+                    <Border.InputBindings>
+                        <MouseBinding Command="{Binding MinimizeWindowCommand}" Gesture="LeftClick" />
+                    </Border.InputBindings>
+                    <TextBlock
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Background="Transparent"
+                        FontSize="30"
+                        FontWeight="Bold"
+                        Foreground="White"
+                        Text="-" />
+
+                </Border>
+
+                <!--  Close Button  -->
+                <Border
+                    x:Name="btnClose"
+                    Width="40"
+                    Height="40"
+                    Margin="20,0,0,0"
+                    Background="DarkRed"
+                    CornerRadius="20"
+                    Cursor="Hand">
+                    <Border.InputBindings>
+                        <MouseBinding Command="{Binding CloseWindowCommand}" Gesture="LeftClick" />
+                    </Border.InputBindings>
+                    <TextBlock
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Background="Transparent"
+                        FontSize="20"
+                        FontWeight="Bold"
+                        Foreground="White"
+                        Text="x" />
+
+                </Border>
+            </StackPanel>
+
+            <!--  Content Control  -->
+            <ContentControl
+                Grid.Row="1"
+                Grid.Column="1"
+                Margin="10"
+                Content="{Binding CurrentView}" />
+        </Grid>
+    </Border>
+</Window>

@@ -1,0 +1,20 @@
+﻿<UserControl
+    x:Class="MinimalApi.Wpf.MVVM.Views.ResourceView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:MinimalApi.Wpf.MVVM.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    Background="Transparent"
+    mc:Ignorable="d">
+    <Border Background="#060531" CornerRadius="20">
+        <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock
+                FontSize="100"
+                Foreground="White"
+                Text="Resources" />
+        </Grid>
+    </Border>
+</UserControl>
