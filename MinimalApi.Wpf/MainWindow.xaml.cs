@@ -13,15 +13,5 @@ namespace MinimalApi.Wpf
         {
             DragMove();
         }
-
-        private void btnMinimize_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            WindowState = WindowState.Minimized;
-        }
-        private void btnClose_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            Close();
-        }
-
     }
 }

@@ -1,6 +1,7 @@
 ﻿using MinimalApi.Wpf.Core.Base;
 using MinimalApi.Wpf.Core.Commands;
 using System;
+using System.Windows.Input;
 
 namespace MinimalApi.Wpf.MVVM.ViewModels
 {
@@ -16,13 +17,17 @@ namespace MinimalApi.Wpf.MVVM.ViewModels
         public VideoPortalViewModel VideoPortalViewModel { get; set; }
 
         // Commands for Navigation //
-        public RelayCommand HomeViewCommand { get; set; }
-        public RelayCommand AboutViewCommand { get; set; }
-        public RelayCommand GroupProjectViewCommand { get; set; }
-        public RelayCommand HelpViewCommand { get; set; }
-        public RelayCommand LoginViewCommand { get; set; }
-        public RelayCommand ResourceViewCommand { get; set; }
-        public RelayCommand VideoPortalViewCommand { get; set; }
+        public ICommand HomeViewCommand { get; set; }
+        public ICommand AboutViewCommand { get; set; }
+        public ICommand GroupProjectViewCommand { get; set; }
+        public ICommand HelpViewCommand { get; set; }
+        public ICommand LoginViewCommand { get; set; }
+        public ICommand ResourceViewCommand { get; set; }
+        public ICommand VideoPortalViewCommand { get; set; }
+
+        // Close and Minimize //
+        public ICommand MinimizeWindowCommand { get; set; }
+        public ICommand CloseWindowCommand { get; set; }
 
 
         // Current View On Property Changed //
@@ -52,7 +57,7 @@ namespace MinimalApi.Wpf.MVVM.ViewModels
             CurrentView = HomeViewModel;
 
             // Set up Commands //
-            SetUpCommands(); 
+            SetUpCommands();
         }
 
         private void SetUpCommands()
@@ -64,11 +69,15 @@ namespace MinimalApi.Wpf.MVVM.ViewModels
             LoginViewCommand = new RelayCommand(obj => ShowLoginView());
             ResourceViewCommand = new RelayCommand(obj => ShowResourceView());
             VideoPortalViewCommand = new RelayCommand(obj => ShowVideoPortalView());
+            MinimizeWindowCommand = new RelayCommand(obj => MinimizeWindow());
+            CloseWindowCommand = new RelayCommand(obj => CloseWindow());
         }
 
-        // Commands //
+
+
+        // Navigation Commands //
         private void ShowHomeView()
-        { 
+        {
             CurrentView = HomeViewModel;
         }
 
@@ -100,6 +109,17 @@ namespace MinimalApi.Wpf.MVVM.ViewModels
         private void ShowVideoPortalView()
         {
             CurrentView = VideoPortalViewModel;
+        }
+
+        private void CloseWindow()
+        {
+            // Use the Close method to close the window
+            App.Current.MainWindow.Close();
+        }
+
+        private void MinimizeWindow()
+        {
+            App.Current.MainWindow.WindowState = System.Windows.WindowState.Minimized;
         }
     }
 }
