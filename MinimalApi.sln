@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MinimalApi.Api", "MinimalAp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MinimalApi.Tests", "MinimalApi.Tests\MinimalApi.Tests.csproj", "{4A2C8899-9219-4BA4-B7D9-C3FC03F5DA19}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinimalApi.Wpf", "MinimalApi.Wpf\MinimalApi.Wpf.csproj", "{252DDC95-9DC1-4CB7-8CAB-5B7EF2AB65B0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MinimalApi.Wpf", "MinimalApi.Wpf\MinimalApi.Wpf.csproj", "{252DDC95-9DC1-4CB7-8CAB-5B7EF2AB65B0}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{74E2E66C-0673-4B2B-B0C9-0099CBA51829}"
 EndProject
@@ -39,6 +39,10 @@ Global
 		{4A2C8899-9219-4BA4-B7D9-C3FC03F5DA19}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4A2C8899-9219-4BA4-B7D9-C3FC03F5DA19}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4A2C8899-9219-4BA4-B7D9-C3FC03F5DA19}.Release|Any CPU.Build.0 = Release|Any CPU
+		{252DDC95-9DC1-4CB7-8CAB-5B7EF2AB65B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{252DDC95-9DC1-4CB7-8CAB-5B7EF2AB65B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{252DDC95-9DC1-4CB7-8CAB-5B7EF2AB65B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{252DDC95-9DC1-4CB7-8CAB-5B7EF2AB65B0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
