@@ -49,7 +49,7 @@
                 <Setter Property="FontFamily" Value="Georgia" />
             </Style>
         </ResourceDictionary>
-        
+
     </Application.Resources>
 
 </Application>
